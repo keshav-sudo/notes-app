@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Notes App - Node vs Go Comparison</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Header -->
+        <header class="header">
+            <div class="logo">
+                <span class="logo-icon">📝</span>
+                <h1>Notes App</h1>
+            </div>
+            <p class="tagline">Node.js vs Go Backend Comparison</p>
+        </header>
+
+        <!-- Navigation Tabs -->
+        <nav class="tabs">
+            <button class="tab active" data-tab="create">Create Notes</button>
+            <button class="tab" data-tab="view">View Notes</button>
+            <button class="tab" data-tab="latency">Test Latency</button>
+        </nav>
+
+        <!-- Create Notes Section -->
+        <section id="create" class="section active">
+            <h2>Create a New Note</h2>
+            <div class="form-container">
+                <input type="text" id="noteTitle" placeholder="Note Title" class="input">
+                <textarea id="noteContent" placeholder="Note Content..." class="textarea"></textarea>
+                
+                <div class="button-group">
+                    <button class="btn btn-node" onclick="createNote('node')">
+                        <span class="btn-icon">🟢</span>
+                        Create with Node.js
+                    </button>
+                    <button class="btn btn-go" onclick="createNote('go')">
+                        <span class="btn-icon">🔵</span>
+                        Create with Go
+                    </button>
+                </div>
+                
+                <div id="createResult" class="result-box hidden"></div>
+            </div>
+        </section>
+
+        <!-- View Notes Section -->
+        <section id="view" class="section">
+            <h2>View Notes</h2>
+            
+            <div class="view-options">
+                <div class="option-group">
+                    <h3>Get All Notes</h3>
+                    <div class="button-group">
+                        <button class="btn btn-node" onclick="getAllNotes('node')">
+                            <span class="btn-icon">🟢</span> Get from Node.js
+                        </button>
+                        <button class="btn btn-go" onclick="getAllNotes('go')">
+                            <span class="btn-icon">🔵</span> Get from Go
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="option-group">
+                    <h3>Get Note by ID</h3>
+                    <input type="text" id="noteId" placeholder="Enter Note ID" class="input">
+                    <div class="button-group">
+                        <button class="btn btn-node" onclick="getNoteById('node')">
+                            <span class="btn-icon">🟢</span> Get from Node.js
+                        </button>
+                        <button class="btn btn-go" onclick="getNoteById('go')">
+                            <span class="btn-icon">🔵</span> Get from Go
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
+            <div id="viewResult" class="result-box hidden"></div>
+        </section>
+
+        <!-- Latency Test Section -->
+        <section id="latency" class="section">
+            <h2>Test Latency</h2>
+            <p class="section-desc">Create multiple notes and compare response times between Node.js and Go</p>
+            
+            <div class="latency-config">
+                <label>Number of Notes to Create:</label>
+                <input type="number" id="noteCount" value="10" min="1" max="100" class="input input-small">
+            </div>
+            
+            <div class="button-group center">
+                <button class="btn btn-primary btn-large" onclick="runLatencyTest()">
+                    🚀 Run Latency Test
+                </button>
+            </div>
+            
+            <div id="latencyResult" class="latency-results hidden">
+                <div class="result-card node-result">
+                    <h3>🟢 Node.js</h3>
+                    <div class="time-display">
+                        <span id="nodeTime">-</span>
+                        <span class="unit">ms</span>
+                    </div>
+                    <p id="nodeStatus">Ready</p>
+                </div>
+                
+                <div class="vs-badge">VS</div>
+                
+                <div class="result-card go-result">
+                    <h3>🔵 Go</h3>
+                    <div class="time-display">
+                        <span id="goTime">-</span>
+                        <span class="unit">ms</span>
+                    </div>
+                    <p id="goStatus">Ready</p>
+                </div>
+            </div>
+            
+            <div id="winner" class="winner-banner hidden"></div>
+        </section>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
