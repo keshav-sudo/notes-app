@@ -288,6 +288,69 @@ body {
 }
 
 /* Latency Test */
+.test-type-selector {
+    background: var(--bg-card);
+    padding: 20px;
+    border-radius: 12px;
+    border: 1px solid var(--border-color);
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.test-type-selector > label {
+    color: var(--text-secondary);
+    margin-bottom: 12px;
+    display: block;
+}
+
+.radio-group {
+    display: flex;
+    gap: 16px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.radio-label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 20px;
+    background: var(--bg-input);
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: 1px solid transparent;
+}
+
+.radio-label:hover {
+    border-color: var(--accent);
+}
+
+.radio-label input[type="radio"] {
+    accent-color: var(--accent);
+    width: 18px;
+    height: 18px;
+}
+
+.radio-label span {
+    color: var(--text-primary);
+}
+
+.radio-label.go-power {
+    border: 2px solid var(--go-color);
+    background: rgba(99, 179, 237, 0.1);
+}
+
+.radio-label.go-power:hover {
+    background: rgba(99, 179, 237, 0.2);
+}
+
+.test-hint {
+    margin-top: 16px;
+    color: var(--go-color);
+    font-size: 0.85rem;
+}
+
 .latency-config {
     display: flex;
     align-items: center;

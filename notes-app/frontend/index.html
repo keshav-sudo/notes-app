@@ -84,11 +84,38 @@
         <!-- Latency Test Section -->
         <section id="latency" class="section">
             <h2>Test Latency</h2>
-            <p class="section-desc">Create multiple notes and compare response times between Node.js and Go</p>
+            <p class="section-desc">Compare performance between Node.js and Go</p>
+            
+            <div class="test-type-selector">
+                <label>Test Type:</label>
+                <div class="radio-group">
+                    <label class="radio-label">
+                        <input type="radio" name="testType" value="db" checked>
+                        <span>📦 Database (I/O Bound)</span>
+                    </label>
+                    <label class="radio-label">
+                        <input type="radio" name="testType" value="ping">
+                        <span>⚡ Ping (Raw HTTP)</span>
+                    </label>
+                    <label class="radio-label go-power">
+                        <input type="radio" name="testType" value="cpu">
+                        <span>🧮 CPU Heavy (Fib 40)</span>
+                    </label>
+                    <label class="radio-label go-power">
+                        <input type="radio" name="testType" value="concurrent">
+                        <span>🔥 High Concurrency</span>
+                    </label>
+                    <label class="radio-label go-power">
+                        <input type="radio" name="testType" value="json">
+                        <span>📊 JSON Processing</span>
+                    </label>
+                </div>
+                <p class="test-hint">🔵 Blue bordered tests show Go's real power!</p>
+            </div>
             
             <div class="latency-config">
-                <label>Number of Notes to Create:</label>
-                <input type="number" id="noteCount" value="10" min="1" max="100" class="input input-small">
+                <label id="countLabel">Number of Requests:</label>
+                <input type="number" id="noteCount" value="100" min="1" max="1000" class="input input-small">
             </div>
             
             <div class="button-group center">
